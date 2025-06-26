@@ -1,28 +1,14 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+// import { useEffect, useState } from 'react'
+// import './App.css'
 
-function App() {
+// Componente App es un componente funcional que va a retornar Interfaz de Usuario (UI)
+export default function App() {
 
-  // Destructuracion
-  const [horaActual, setHoraActual] = useState(new Date());
-
-  // Funcionalidad
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setHoraActual(new Date());
-    }, 1000);
-
-    return () => clearInterval(timerId);
-  }, []);
-
-  // UI
   return (
     <div>
-      <h3>Ejemplo React</h3>
-      <input />
-      <div>{horaActual.toString()}</div>
+       <h1>Hola mundo</h1> {/* Esto no es HTML, es JSX: permite construir UI de manera intuitiva */}
+      <h3>Esta es mi pagina</h3>
     </div>
-  )
+  );
 }
 
-export default App
