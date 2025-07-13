@@ -1,3 +1,5 @@
+import styles from './App.module.css'
+
 // Componente App es un componente funcional que va a retornar Interfaz de Usuario (UI)
 export default function App() {
 
@@ -7,8 +9,11 @@ export default function App() {
 
   return (
     <>
-      <h1>Hola mundo</h1>
-      <h3>{subtitulo.toUpperCase()}</h3>
+      <h1 className="rojo">Hola mundo</h1>
+      
+      {/* <div style={cuadradoRojo}></div> */}
+      
+      <h3 className={styles.color}>{subtitulo.toUpperCase()}</h3>
       <h4>El doble de 3 es {duplicar(3)}</h4>
       <img src={imagenURL} alt="logo_vite" />
     </>
