@@ -13,6 +13,7 @@ export default function App() {
   // Hooks
   const [texto, setTexto] = useState(''); 
 
+  // La variable siempre se iniciará en '', cada vez que se renderice el componente. Por eso es importante que si quiero que el valor de la variable se mantenga entre renderizados, se use el useState
   let texto2 = '';
   console.log(texto2);
 
