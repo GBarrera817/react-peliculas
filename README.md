@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# Estado en React: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Datos que pertenecen a un componente, los cuales, al ser editados, provocan que se vuelva a renderizar el componente. 
 
-Currently, two official plugins are available:
+# React Hooks 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Son funcionalidades que fueron agregadas a React para hacer los componentes funcionales más poderosos.
 
-## Expanding the ESLint configuration
+# useState
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Con *useState* podemos trabajar estados en componentes funcionales.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<code>
+const [nombre, setNombre] = useState('');
+</code>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+donde <code>nombre</code> es el nombre de la variable y <code>setNombre</code> es el nombre de la función por el cual se actualiza el estado. El *parámetro* de useState es el valor inicial de la variable *nombre*.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Para actualizar el nombre se utiliza de la siguiente manera:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<code>setNombre('Gabriela');</code>
+
+## ¿Cuándo utilizar Estados?
+
+Cuando el cambio del valor de las variables que se están usando en el componente provoque un cambio en el UI del componente y también cuando al volver a renderizar el componente se mantenga el valor de la variable entre un renderizado y otro.
+
+### Ejemplos
+
+<code>
+    const [nombre, setNombre] = useState(''); // string
+    const [edad, setEdad] = useState(0); // int
+    const [online, setOnline] = useState(false); // bool
+</code>
+
+
+Los hooks NO SE PUEDEN CONDICIONAR. Ej:
+
+<code>
+
+    const [nombre, setNombre] = useState('');
+
+    if (condicion) {
+      const [edad, setEdad] = useState(0);
+    }
+
+    const [online, setOnline] = useState(false);
+</code>
+
+Otros hooks
+
+- useEffect: trabaja efectos secundarios en los componentes y realizar limpieza de recursos.
+- useContext: comunicación entre componentes que no son hijos ni padres inmediatos
+- useMemo: guarda información en Caché.
+- useCallback: guarda referencias de una función.
