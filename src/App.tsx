@@ -26,15 +26,6 @@ export default function App() {
   }
   return (
     <>
-<<<<<<< HEAD
-      <h1 className="rojo">Hola mundo</h1>
-      
-      {/* <div style={cuadradoRojo}></div> */}
-      
-      <h3 className={styles.color}>{subtitulo.toUpperCase()}</h3>
-      <h4>El doble de 3 es {duplicar(3)}</h4>
-      <img src={imagenURL} alt="logo_vite" />
-=======
       <h1 className='rojo'>Hola mundo</h1>
 
       <button onClick={manejarClick}>Clickeame</button>
@@ -45,7 +36,6 @@ export default function App() {
       <div>
         <p>Haz escrito: {texto}</p>
       </div>
->>>>>>> 264003fb12907ef3c9e2b0490044d94f5608f9a7
     </>
   );
 }
