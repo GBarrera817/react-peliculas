@@ -2,6 +2,8 @@
 // import styles from './App.module.css'
 
 import { useState } from "react";
+import Header from "./Header";
+import ShowText from "./ShowText";
 
 
 // Componente App es un componente funcional que va a retornar Interfaz de Usuario (UI)
@@ -26,16 +28,21 @@ export default function App() {
   }
   return (
     <>
-      <h1 className='rojo'>Hola mundo</h1>
+
+      {/* Utikizar componente */}
+
+      <Header/>
 
       <button onClick={manejarClick}>Clickeame</button>
 
       <div>
         <input type="text" onKeyUp={(e) => manejarKeyUp(e)}/>
       </div>
-      <div>
-        <p>Haz escrito: {texto}</p>
-      </div>
+      
+      <ShowText texto={texto} />
+
+      <Header/>
+
     </>
   );
 }
