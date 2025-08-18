@@ -1,33 +1,35 @@
-import Header from "./Header";
-import ProjectContent from "./ProjectContent";
-import ProjectContent2 from "./ProjectContent2";
+import { useState } from "react";
+import DynamicContent from "./DynamicContent";
+import DynamicContentIf from "./DynamicContentIf";
+
 
 export default function App() {
 
+  // Forma 1: con operador ternario
+  /*const [show, setShow] = useState(false);
+
   return (
     <>
-      <h2>Ejemplo 1</h2>
-      <ProjectContent>
-        <>
-          <button onClick={() => alert('He sido clickeado')}>Clickeame</button>
-          <h4>Este es un H4</h4>
-        </>
-      </ProjectContent>
+      <input type="checkbox" onChange={e => setShow(e.target.checked)} />
+      <label htmlFor="">Mostar el mensaje oculto</label>
 
-      <h2>Ejemplo 2</h2>
+      <DynamicContent showContent={show} />
 
-      <ProjectContent2 
-        parteSuperior={<button>Botón superior</button>}
-        parteIntermedia={<>
-          
-            <Header/>
-            <p>Lo que yo quiera</p>
-        </>}
-        parteInferior={<>
-        
-        </>}
-      />
     </>
-  );
+  );*/
+
+  // Forma 2: con If
+
+  const [grade, setGrade] = useState<number | null>(null); // grade es del tipo de dato number o null y se inicializa con null (para no mostrarlo)
+
+  return(
+    <>
+      <label htmlFor="">Ingrese la calificación: </label>
+      <input type="nuber" onChange={e => setGrade(Number(e.target.value))} />
+
+      {grade ? <DynamicContentIf grade={grade}/> : undefined}
+    </>
+  )
+
 }
 
