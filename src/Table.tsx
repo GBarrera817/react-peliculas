@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type Person from "./Model.Person";
+import Row from "./Row";
 
 export default function Table() {
     
@@ -22,7 +23,6 @@ export default function Table() {
         )
     }
 
-
     return (
         <table>
             <thead>
@@ -33,14 +33,7 @@ export default function Table() {
                 </tr>
             </thead>
             <tbody>
-                {people.map(p => 
-                <tr key={p.id}>
-                    <td>{p.name}</td>
-                    <td>{p.department}</td>
-                    <td>
-                        <button onClick={() => removePerson(p)}>Remove</button>
-                    </td>
-                </tr>)}
+                {people.map(p => <Row key={p.id} person={p} remove={removePerson}/>)}
             </tbody>
         </table>
     )
