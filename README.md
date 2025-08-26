@@ -61,5 +61,8 @@ El listado de dependencias nos permite indicar que el efecto debe ejecutarse
 
 - useContext: comunicación entre componentes que no son hijos ni padres inmediatos
   - Se puede definir un valor al cual nos podemos suscribir, así, cuando dicho valor cambie, TODOS los componentes suscritos recibiirán una notificación del cambio
-- useMemo: guarda información en Caché.
+- useMemo: guarda el resultado de una función en Caché. 
+  - Para evitar tener que volver a realizar un cálculo sin justificación
+  - Mejora de rendimiento y velocidad de las aplicaciones
+  - Memo viene de "Memoización": técnica que consiste en almacenar el resultado de cálculos para evitar repetirlos.
 - useCallback: guarda referencias de una función.

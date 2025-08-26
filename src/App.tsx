@@ -1,11 +1,11 @@
-import UseContextExample from "./UseContextExample/UseContextExample";
+import MemoizarExample from "./MemoizarExample";
 
 
 export default function App() {
 
   return(
     <>
-      <UseContextExample/>
+      <MemoizarExample/>
     </>
   )
 }
