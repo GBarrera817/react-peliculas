@@ -5,6 +5,10 @@ const RowMemoizar = memo(function RowMemoizar({person, remove}: RowProps) {
 
     console.log(`Cargar fila de ${person.name}`);
     
+    if (person.name === 'Roberto'){
+        throw Error();
+    }
+
     return (
         <tr>
             <td>{person.name}</td>

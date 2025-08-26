@@ -1,6 +1,7 @@
 import { memo, useCallback, useState } from "react";
 import type Person from "../Model.Person";
 import RowMemoizar from "./RowMemoizar";
+import { ErrorBoundary } from "react-error-boundary";
 
 const TableMemoizar = memo(function TableMemoizar() {
 
@@ -33,7 +34,16 @@ const TableMemoizar = memo(function TableMemoizar() {
                 </tr>
             </thead>
             <tbody>
-                {people.map(p => <RowMemoizar key={p.id} person={p} remove={removePerson}/>)}
+                {/* Fallback: es lo que se va a mostrar en caso de que haya un error */}
+                {people.map(p => 
+                    <ErrorBoundary key={p.id} fallback={<>
+                        <tr>
+                            <td colSpan={3} style={{color: 'red'}}>--Error: {p.name}</td>
+                        </tr>
+                    </>}>
+                        <RowMemoizar person={p} remove={removePerson}/>
+                    </ErrorBoundary>
+                )}
             </tbody>
         </table>
     )
