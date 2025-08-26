@@ -1,12 +1,12 @@
-import Table from "./Table";
-
+import UseContextExample from "./UseContextExample/UseContextExample";
 
 
 export default function App() {
 
+
   return(
     <>
-      <Table />
+      <UseContextExample/>
     </>
   )
 

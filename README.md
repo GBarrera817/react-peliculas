@@ -48,7 +48,18 @@ Los hooks NO SE PUEDEN CONDICIONAR. Ej:
 
 Otros hooks
 
-- useEffect: trabaja efectos secundarios en los componentes y realizar limpieza de recursos.
+- useEffect: trabaja efectos secundarios en los componentes y realizar limpieza de recursos. Código que podemos ejecutar POSTERIOR al renderizado del componente
+
+Ejemplos:
+  - Peticiones HTTP **al cargar** el componente
+  - Actualizar el título del documento HTML
+
+El listado de dependencias nos permite indicar que el efecto debe ejecutarse
+  
+    - Al cargar el componente
+    - Al renderizar el componente y que una dependencia haya cambiado
+
 - useContext: comunicación entre componentes que no son hijos ni padres inmediatos
+  - Se puede definir un valor al cual nos podemos suscribir, así, cuando dicho valor cambie, TODOS los componentes suscritos recibiirán una notificación del cambio
 - useMemo: guarda información en Caché.
 - useCallback: guarda referencias de una función.
