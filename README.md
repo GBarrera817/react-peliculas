@@ -65,4 +65,4 @@ El listado de dependencias nos permite indicar que el efecto debe ejecutarse
   - Para evitar tener que volver a realizar un cálculo sin justificación
   - Mejora de rendimiento y velocidad de las aplicaciones
   - Memo viene de "Memoización": técnica que consiste en almacenar el resultado de cálculos para evitar repetirlos.
-- useCallback: guarda referencias de una función.
+- useCallback: guarda referencias (definición) de una función.

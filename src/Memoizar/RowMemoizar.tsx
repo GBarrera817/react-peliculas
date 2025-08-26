@@ -1,7 +1,10 @@
+import { memo } from "react";
 import type Person from "../Model.Person";
 
-export default function RowMemoizar({person, remove}: RowProps) {
+const RowMemoizar = memo(function RowMemoizar({person, remove}: RowProps) {
 
+    console.log(`Cargar fila de ${person.name}`);
+    
     return (
         <tr>
             <td>{person.name}</td>
@@ -11,10 +14,11 @@ export default function RowMemoizar({person, remove}: RowProps) {
             </td>
         </tr>
     )
-
-}
+});
 
 interface RowProps {
     person: Person;
     remove: (p: Person) => void; // remove es una funcion () que recibe como parametro a un objeto de tipo Person, y no devuelve nada: void
 }
+
+export default RowMemoizar;

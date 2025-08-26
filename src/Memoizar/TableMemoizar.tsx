@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import type Person from "../Model.Person";
 import RowMemoizar from "./RowMemoizar";
 
@@ -18,12 +18,10 @@ const TableMemoizar = memo(function TableMemoizar() {
 
     const [people, setPeople] = useState(peopleSource);
 
-    const removePerson = (person: Person) => {
+    const removePerson = useCallback((person: Person) => {
 
-        setPeople(
-            people.filter(p => p.id !== person.id)
-        )
-    }
+        setPeople(currentState => currentState.filter(p => p.id !== person.id))
+    }, []);
 
     return (
         <table>
