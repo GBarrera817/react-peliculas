@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieList from "./features/movies/components/MovieList";
 import type Movie from "./features/movies/models/movie.model";
+import Button from "./features/movies/components/button";
 
 export default function App() {
 
@@ -19,9 +20,9 @@ export default function App() {
       // Now Playing (en cartelera o en cines)
       const nowPlaying: Movie[] = [
         {
-        id: 1,
-        title: 'Sonic 3',
-        poster: 'https://static.wikia.nocookie.net/a4aa97bb-de0c-4aab-a16c-4ab4fb1116c8'
+          id: 1,
+          title: 'Sonic 3',
+          poster: 'https://static.wikia.nocookie.net/a4aa97bb-de0c-4aab-a16c-4ab4fb1116c8'
         },
         {
           id: 2,
@@ -31,20 +32,21 @@ export default function App() {
       ];
 
       // Comming Soon (próximos estrenos)
-      // const commingSoon: Movie[] = [
-      //   {
-      //     id: 3,
-      //     title: 'The Long Walk',
-      //     poster: 'https://www.cinemark.com/media/gxfj1p52/medthelongwalkposter.jpg'
-      //   },
-      //   {
-      //     id: 4,
-      //     title: 'Dude Perfect: The Hero Tour',
-      //     poster: 'https://www.cinemark.com/media/gwwery0h/meddudeperfectposter.jpg'
-      //   }
-      // ];
+      const commingSoon: Movie[] = [
+        {
+          id: 3,
+          title: 'The Long Walk',
+          poster: 'https://www.cinemark.com/media/gxfj1p52/medthelongwalkposter.jpg'
+        },
+        {
+          id: 4,
+          title: 'Dude Perfect: The Hero Tour',
+          poster: 'https://www.cinemark.com/media/gwwery0h/meddudeperfectposter.jpg'
+        }
+      ];
 
-      const commingSoon: Movie[] = [];
+      // Just for test
+      // const commingSoon: Movie[] = [];
 
       setMovies( { nowPlaying, commingSoon});
 
@@ -55,11 +57,14 @@ export default function App() {
 
   return(
     <>
+    <div className="container">
+      <Button>Mi boton de prueba</Button>
       <h3>Now Playing</h3>
       <MovieList movies={movies.nowPlaying} />
 
       <h3>Comming Soon</h3>
       <MovieList movies={movies.commingSoon} />
+    </div>
 
     </>
   )

@@ -1,21 +1,22 @@
 import type Movie from "../models/movie.model";
+import GenericList from "./GenericList";
+
 import IndividualMovie from "./IndividualMovie";
 import styles from "./MovieList.module.css";
 
 export default function MovieList(props: MovieListProps) {
-  if (!props.movies) {
-    return "Now loading...";
-  } else if (props.movies.length === 0) {
-    return "No available movies to show";
-  } else {
+  
     return (
-      <div className={styles.div}>
-        {props.movies.map((movie) => (
-          <IndividualMovie key={movie.id} movie={movie} />
-        ))}
-      </div>
+        <GenericList<Movie> list={props.movies} emtpyListUI={
+            <>There's no movies to show.</>
+        }>
+            <div className={styles.div}>
+                {props.movies?.map((movie) => (
+                <IndividualMovie key={movie.id} movie={movie} />
+                ))}
+            </div>
+        </GenericList>
     );
-  }
 }
 
 interface MovieListProps {
