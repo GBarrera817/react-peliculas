@@ -3,6 +3,7 @@ import Button from "../../../components/Button";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
+import { firstLetterUpper } from "../../../validations/Validations";
 
 export default function GenreCreate() {
 
@@ -51,5 +52,5 @@ interface FormType {
 // Form Validation
 const validationRules = yup.object({
 
-    name: yup.string().required('Name is required')
+    name: yup.string().required('Name is required').test(firstLetterUpper())
 });
