@@ -1,5 +1,14 @@
+import { useParams } from "react-router";
+
 export default function MovieEdit() {
+
+    // New hook useParams: allow to receive the URL params
+    const {id} = useParams();
+    
     return (
-        <h3>Edit movie</h3>
+        <>
+            <h3>Edit movie</h3>
+            <p>El id es {id}</p>
+        </>
     );
 }
