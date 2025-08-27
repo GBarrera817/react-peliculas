@@ -1,6 +1,6 @@
 export default function Button(props: ButtonProps) {
     return (
-        <button type="button" className="btn btn-primary">
+        <button type="button" className="btn btn-primary" onClick={props.onClick}>
             {props.children}
         </button>
     )
@@ -8,4 +8,5 @@ export default function Button(props: ButtonProps) {
 
 interface ButtonProps {
     children: React.ReactNode;
+    onClick(): void;
 }
