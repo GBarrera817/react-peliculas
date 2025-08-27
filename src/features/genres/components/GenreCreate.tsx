@@ -5,7 +5,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 export default function GenreCreate() {
 
     // register: connect interface prop, for example, name, with the proper input   
-
+    // handleSubmit: for handle the submit of the form
     const {register, handleSubmit} = useForm<FormType>();
 
     const onSubmit: SubmitHandler<FormType> = (data) => {
