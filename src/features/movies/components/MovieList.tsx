@@ -1,5 +1,5 @@
+import GenericList from "../../../components/GenericList";
 import type Movie from "../models/movie.model";
-import GenericList from "./GenericList";
 
 import IndividualMovie from "./IndividualMovie";
 import styles from "./MovieList.module.css";
