@@ -9,6 +9,9 @@ export default function Menu() {
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
+                            <NavLink to="/movies/filter" className="nav-link">Movies filter</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink to="/genres" className="nav-link">Genres</NavLink>
                         </li>
                         <li className="nav-item">
