@@ -15,7 +15,11 @@ export default function ActorEdit() {
     useEffect(() => {
 
         const timerId = setTimeout(() => {
-            setModel({name: 'Tom ' + id, dateBirth: '2022-11-23'})
+            setModel({
+                name: 'Tom ' + id, 
+                dateBirth: '2022-11-23', 
+                picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/ChrisEvans2023.jpg/250px-ChrisEvans2023.jpg'
+            })
         }, 1000);
 
         return () => clearTimeout(timerId);

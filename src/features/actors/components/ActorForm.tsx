@@ -5,18 +5,22 @@ import { NavLink } from "react-router";
 import * as yup from "yup";
 import { DatebirthCannotBeFuture, firstLetterUpper } from "../../../validations/Validations";
 import { yupResolver } from "@hookform/resolvers/yup";
+import FileChooser from "../../../components/FileChooser";
 
 export default function ActorForm(props: ActorFormProps) {
 
     const {
         register,
         handleSubmit,
+        setValue,
         formState: {errors, isValid, isSubmitting}
     } = useForm<ActorCreate>({
         resolver: yupResolver(validationRules),
         mode: 'onChange',
         defaultValues: props.model ?? { name: ''}
     });
+
+    const currentImageURL: string | undefined = props.model?.picture ? props.model.picture as string : undefined; 
 
     return (
         <form onSubmit={handleSubmit(props.onSubmit)}>
@@ -30,10 +34,14 @@ export default function ActorForm(props: ActorFormProps) {
                 <input type="date" id="dateBirth" autoComplete="off" className="form-control" {...register('dateBirth')}/>
                 { errors.dateBirth && <p className="error">{errors.dateBirth.message}</p>}
             </div>
+
+            {/* Upload Image  */}
+            <FileChooser label="picture" imageURL={currentImageURL} selectedImage={picture => setValue('picture', picture)}/>            
+
             <div className="mt-2">
                 <Button 
                     type="submit" 
-                    disabled={!isValid || isSubmitting<>}>{isSubmitting ? 'Sending...' : 'Send'}
+                    disabled={!isValid || isSubmitting}>{isSubmitting ? 'Sending...' : 'Send'}
                 </Button>
                 <NavLink className="btn btn-secondary ms-2" to="/actors">Cancel</NavLink>
             </div>
