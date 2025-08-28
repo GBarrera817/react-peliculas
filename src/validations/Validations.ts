@@ -12,6 +12,19 @@ export function firstLetterUpper() {
 
             return true;
         }
+    }
+}
 
+export function DatebirthCannotBeFuture(){
+    return {
+        name: 'date-is-not-future',
+        message: 'The date cannot be on the future',
+        test: (value: string | undefined) => {
+            if (!value) return true;
+
+            const date = new Date(value);
+            const today = new Date();
+            return date <= today;
+        }
     }
 }

@@ -2,6 +2,9 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import type ActorCreate from "../models/ActorCreate.model";
 import Button from "../../../components/Button";
 import { NavLink } from "react-router";
+import * as yup from "yup";
+import { DatebirthCannotBeFuture, firstLetterUpper } from "../../../validations/Validations";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function ActorForm(props: ActorFormProps) {
 
@@ -10,6 +13,8 @@ export default function ActorForm(props: ActorFormProps) {
         handleSubmit,
         formState: {errors, isValid, isSubmitting}
     } = useForm<ActorCreate>({
+        resolver: yupResolver(validationRules),
+        mode: 'onChange',
         defaultValues: props.model ?? { name: ''}
     });
 
@@ -40,3 +45,9 @@ interface ActorFormProps {
     model?: ActorCreate;
     onSubmit: SubmitHandler<ActorCreate>;
 }
+
+// Form Validation
+const validationRules = yup.object({
+    name: yup.string().required('Name is required').test(firstLetterUpper()),
+    dateBirth: yup.string().required('Datebirth is required').test(DatebirthCannotBeFuture())
+})

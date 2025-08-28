@@ -37,7 +37,7 @@ export default function MoviesFilter() {
                     <input type="text" id="title" placeholder="Insert movie title..." autoComplete="off" className="form-control" {...register('title')}/>
                 </div>
                 <div className="col-12">
-                    <select name="" id="" className="form-select">
+                    <select name="genreList" id="" className="form-select">
                         <option value="0">-- Select a genre --</option>
                         {/* Siempre colocar un key cuando se trabaje con select */}
                         {genres.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
